@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:debug_stick",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{ExplodedSpawner:1b}"
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "count": 1
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
