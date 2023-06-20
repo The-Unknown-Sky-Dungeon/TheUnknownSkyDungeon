@@ -14,6 +14,6 @@ execute if data storage tusd_: {Debug:0b} run data modify storage tusd_: _ set v
 summon minecraft:area_effect_cloud ~ ~ ~ {Age:0,WaitTime:1,ReapplicationDelay:0,Duration:0}
 execute store result score $RndMWC Random run data get entity @e[distance=..0.01,type=minecraft:area_effect_cloud,limit=1] UUID[0] 0.01
 execute store result score $RndMWCCarry Random run data get entity @e[distance=..0.01,type=minecraft:area_effect_cloud,limit=1] UUID[1] 0.01
-scoreboard players set _ _ 65536
-scoreboard players operation $RndMWC Random %= _ _
-scoreboard players operation $RndMWCCarry Random /= _ _
+scoreboard players set _ _1 65536
+scoreboard players operation $RndMWC Random %= _ _1
+scoreboard players operation $RndMWCCarry Random /= _ _1

@@ -15,6 +15,8 @@ scoreboard objectives add EXP dummy {"text":"EXP"}
 scoreboard objectives add EXPAll dummy {"text":"総取得EXP"}
 scoreboard objectives add ATK dummy {"text":"攻撃力"}
 scoreboard objectives add DEF dummy {"text":"防具値"}
+scoreboard objectives add HPRegen dummy {"text":"HP回復量"}
+scoreboard objectives add MPRegen dummy {"text":"MP回復量"}
 scoreboard objectives add Damage dummy {"text":"ダメージ"}
 scoreboard objectives add CustomHeal dummy {"text":"カスタムHP回復"}
 scoreboard objectives add Life dummy {"text":"スポナー破壊数"}
@@ -33,8 +35,9 @@ scoreboard objectives add SummonerLv dummy {"text":"サモナーLv"}
 scoreboard objectives setdisplay belowName HP
 
 ###変数、乱数
-scoreboard objectives add _ dummy {"text":"一時変数 _"}
-scoreboard objectives add __ dummy {"text":"一時変数 __"}
+scoreboard objectives add _1 dummy {"text":"一時変数1"}
+scoreboard objectives add _2 dummy {"text":"一時変数2"}
+scoreboard objectives add _3 dummy {"text":"一時変数3"}
 scoreboard objectives add Random dummy {"text":"乱数用変数"}
 
 ###システムディメンション設定
