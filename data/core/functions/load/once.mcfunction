@@ -19,14 +19,17 @@ scoreboard objectives add Damage dummy {"text":"ダメージ"}
 scoreboard objectives add CustomHeal dummy {"text":"カスタムHP回復"}
 scoreboard objectives add Life dummy {"text":"スポナー破壊数"}
 scoreboard objectives add BreakSpawner dummy {"text":"スポナー破壊数"}
-scoreboard objectives add GlowAttack dummy {"text":"攻撃力強化"}
-scoreboard objectives add GlowAttack dummy {"text":"攻撃力強化"}
-scoreboard objectives add GlowAttack dummy {"text":"攻撃力強化"}
-scoreboard objectives add GlowAttack dummy {"text":"攻撃力強化"}
-scoreboard objectives add GlowAttack dummy {"text":"攻撃力強化"}
-scoreboard objectives add GlowAttack dummy {"text":"攻撃力強化"}
-scoreboard objectives add GlowAttack dummy {"text":"攻撃力強化"}
-scoreboard objectives add GlowAttack dummy {"text":"攻撃力強化"}
+scoreboard objectives add GlowATK dummy {"text":"攻撃力強化"}
+scoreboard objectives add GlowDEF dummy {"text":"防御力強化"}
+scoreboard objectives add GlowHP dummy {"text":"HP強化"}
+scoreboard objectives add GlowMP dummy {"text":"MP強化"}
+scoreboard objectives add GlowHPRegen dummy {"text":"HP回復強化"}
+scoreboard objectives add GlowMPRegen dummy {"text":"MP回復強化"}
+scoreboard objectives add GlowImmune dummy {"text":"免疫力強化"}
+scoreboard objectives add WarriorLv dummy {"text":"ウォーリアLv"}
+scoreboard objectives add SorcererLv dummy {"text":"ソーサラーLv"}
+scoreboard objectives add SniperLv dummy {"text":"スナイパーLv"}
+scoreboard objectives add SummonerLv dummy {"text":"サモナーLv"}
 scoreboard objectives setdisplay belowName HP
 
 ###変数、乱数
