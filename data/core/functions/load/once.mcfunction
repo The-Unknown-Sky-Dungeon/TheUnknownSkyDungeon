@@ -34,6 +34,8 @@ scoreboard objectives add SniperLv dummy {"text":"スナイパーLv"}
 scoreboard objectives add SummonerLv dummy {"text":"サモナーLv"}
 scoreboard objectives setdisplay belowName HP
 
+###トリガースコア作成
+
 ###変数、乱数
 scoreboard objectives add _1 dummy {"text":"一時変数1"}
 scoreboard objectives add _2 dummy {"text":"一時変数2"}
@@ -48,3 +50,20 @@ execute in core:system positioned 5 5 5 run function calc:geometory/0-0-0-0-0
 execute in core:system positioned 5 5 5 run function calc:geometory/0-0-0-0-1
 execute in core:system positioned 5 5 5 run function calc:geometory/0-0-0-0-2
 execute in core:system positioned 5 10 5 run summon snowball ~ ~ ~ {NoGravity:1b,UUID:[I;0,0,0,3]}
+
+###チーム作成
+team add Green {"text":"味方緑チーム"}
+team modify Green friendlyFire false
+team modify Green collisionRule never
+team modify Green seeFriendlyInvisibles false
+team modify Green color green
+team add Gold {"text":"味方黄色チーム"}
+team modify Gold friendlyFire false
+team modify Gold collisionRule never
+team modify Gold seeFriendlyInvisibles false
+team modify Gold color gold
+team add Red {"text":"味方赤チーム"}
+team modify Red friendlyFire false
+team modify Red collisionRule never
+team modify Red seeFriendlyInvisibles false
+team modify Red color green
