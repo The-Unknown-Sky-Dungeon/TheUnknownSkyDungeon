@@ -42,6 +42,17 @@ scoreboard objectives add _2 dummy {"text":"一時変数2"}
 scoreboard objectives add _3 dummy {"text":"一時変数3"}
 scoreboard objectives add Random dummy {"text":"乱数用変数"}
 
+##時間管理スコアの設定
+scoreboard objectives add 2Tick dummy {"text": "2Tick管理スコア"}
+scoreboard objectives add 4Tick dummy {"text": "4Tick管理スコア"}
+scoreboard objectives add 10Tick dummy {"text": "10Tick管理スコア"}
+scoreboard objectives add 20Tick dummy {"text": "20Tick管理スコア"}
+execute store result score _ _1 run time query gametime
+execute store result score _ 2Tick run scoreboard players add _ _1 1
+execute store result score _ 4Tick run scoreboard players get _ _1
+execute store result score _ 10Tick run scoreboard players get _ _1
+execute store result score _ 20Tick run scoreboard players get _ _1
+
 ###システムディメンション設定
 execute in core:system run forceload add 0 0
 execute in core:system run setblock 2 2 2 shulker_box
