@@ -34,6 +34,9 @@ scoreboard objectives add SniperLv dummy {"text":"スナイパーLv"}
 scoreboard objectives add SummonerLv dummy {"text":"サモナーLv"}
 scoreboard objectives setdisplay belowName HP
 
+###敵MOB用スコア
+scoreboard objectives add MobID dummy {"text":"MOB ID"}
+
 ###トリガースコア作成
 
 ###変数、乱数
@@ -78,3 +81,5 @@ team modify Red friendlyFire false
 team modify Red collisionRule never
 team modify Red seeFriendlyInvisibles false
 team modify Red color green
+team add Enemy {"text":"敵チーム"}
+team add Friend {"text":"味方チーム"}
