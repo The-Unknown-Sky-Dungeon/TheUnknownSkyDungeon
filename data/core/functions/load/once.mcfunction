@@ -6,7 +6,8 @@
 #function core:load/gamerule
 
 ###ステータススコア
-scoreboard objectives add HP health {"text":"HP"}
+scoreboard objectives add HP dummy {"text":"HP"}
+scoreboard objectives add PlayerHP health {"text":"HP"}
 scoreboard objectives add HPMax dummy {"text":"最大HP"}
 scoreboard objectives add MP dummy {"text":"MP"}
 scoreboard objectives add MPMax dummy {"text":"MP最大値"}
@@ -32,10 +33,11 @@ scoreboard objectives add WarriorLv dummy {"text":"ウォーリアLv"}
 scoreboard objectives add SorcererLv dummy {"text":"ソーサラーLv"}
 scoreboard objectives add SniperLv dummy {"text":"スナイパーLv"}
 scoreboard objectives add SummonerLv dummy {"text":"サモナーLv"}
-scoreboard objectives setdisplay belowName HP
+scoreboard objectives setdisplay belowName PlayerHP
 
 ###敵MOB用スコア
 scoreboard objectives add MobID dummy {"text":"MOB ID"}
+scoreboard objectives add Invincible dummy {"text":"無敵スコア"}
 
 ###トリガースコア作成
 
