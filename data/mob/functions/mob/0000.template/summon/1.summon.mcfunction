@@ -6,7 +6,7 @@
 # このFunctionを実行することで召喚できる。
 
 # 元となるMobを召喚する
-    summon zombie ~ ~ ~ {DeathLootTable:"minecraft:empty",Tags:["Enemy","MobInit"],CanPickUpLoot:0b}
+    summon zombie ~ ~ ~ {DeathLootTable:"minecraft:empty",Tags:["Mob","Enemy","MobInit"],CanPickUpLoot:0b}
 # 敵モブのID (int)
     data modify storage tusd_: Mob.ID set value 0
 # 敵モブの危険度 (string)

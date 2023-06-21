@@ -40,7 +40,7 @@
 ##Attribute
     data modify storage tusd_: Attributes[{Name:"generic.max_health"}].Base set value 1024d
     data modify entity @s Health set value 0.01f
-    data modify entity @s AbsorptionAmount set value 100000000d
+    data modify entity @s AbsorptionAmount set value 1000000f
     data modify storage tusd_: Attributes[{Name:"generic.attack_damage"}].Base set value 0.00001d
     data modify storage tusd_: Attributes[{Name:"generic.movement_speed"}].Base set from storage tusd_: Mob.Speed
     execute unless data storage tusd_: Mob.FollowRange run data modify storage tusd_: Attributes[{Name:"generic.follow_range"}].Base set value 32d
@@ -52,10 +52,11 @@
     execute if data storage tusd_: Mob.Name run data modify entity @s CustomName set from storage tusd_: Mob.Name
 
 ##スコア適用
-    execute store result score @s HPMax run data get storage tusd_: Mob.Health 100
+    execute store result score @s HPMax run data get storage tusd_: Mob.Health 10
     scoreboard players operation @s HP = @s HPMax
     execute store result score @s ATK run data get storage tusd_: Mob.Attack
     execute store result score @s DEF run data get storage tusd_: Mob.Defense
+    scoreboard players set @s Invincible 0
 
 ##チーム加入
     execute if entity @s[tag=Enemy] run team join Enemy
