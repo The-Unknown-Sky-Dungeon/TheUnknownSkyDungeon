@@ -10,7 +10,7 @@
 # 敵モブのID (int)
     data modify storage tusd_: Mob.ID set value 0
 # 敵モブの危険度 (string)
-    data modify storage tusd_: Mob.Danger set value "EASY"
+    data modify storage tusd_: Mob.Danger set value "LUNATIC"
 # 敵モブの名前 (TextComponentString) (オプション)
     data modify storage tusd_: Mob.Name set value '{"translate":"ダミーゾンビ","color":"white"}'
 # 敵モブの見た目

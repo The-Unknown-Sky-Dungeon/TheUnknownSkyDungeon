@@ -11,7 +11,7 @@ execute at @e[tag=Enemy,nbt=!{AbsorptionAmount:1000000f}] run function calc:geom
 execute if entity @s[advancements={player:hurt_entity={BowAttack=true}}] at 0-0-0-0-2 run data modify entity @e[tag=Enemy,nbt=!{AbsorptionAmount:1000000f},distance=0,limit=1] AbsorptionAmount set value 999999f
 
 ##ダメージを与える
-execute at 0-0-0-0-2 as @e[tag=Enemy,nbt=!{AbsorptionAmount:1000000f},distance=0] run function mob:core/damage/
+execute at 0-0-0-0-2 as @e[tag=Enemy,nbt=!{AbsorptionAmount:1000000f},distance=0] run function mob:core/damage/absorption
 
 ##進捗リセット
 advancement revoke @s only player:hurt_entity
