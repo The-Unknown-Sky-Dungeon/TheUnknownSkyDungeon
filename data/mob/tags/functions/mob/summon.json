@@ -1,0 +1,6 @@
+{
+    "replace": false,
+    "values": [
+        "mob:mob/0000.template/summon/2.check_summon_id"
+    ]
+}

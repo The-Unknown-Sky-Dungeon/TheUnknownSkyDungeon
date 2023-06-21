@@ -70,9 +70,10 @@
     execute if data storage tusd_: AI.Damage run tag @s add Call_Damage
     execute if data storage tusd_: AI run data modify storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].AI set from storage tusd_: AI
 
+##一個タグを残す
+    tag @s add MobSetting
+
 ##リセット
-    tag @s remove MobInit
-    tag @s add Initialized
     data remove storage tusd_: Mob
     data remove storage tusd_: MobCreate
     data remove storage tusd_: AI
