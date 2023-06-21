@@ -61,6 +61,10 @@
     execute if entity @s[tag=Enemy] run team join Enemy
     execute if entity @s[tag=Friend] run team join Friend
 
+##防具値と防具強度が0になるように設定
+    attribute @s generic.armor modifier add 0-0-0-0-1 "防具値0" -1.0 multiply
+    attribute @s generic.armor_toughness modifier add 0-0-0-0-2 "防具強度0" -1.0 multiply
+
 ##Oh_my_datを渡す
     function oh_my_dat:please
     data modify storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].Mob set from storage tusd_: Mob
