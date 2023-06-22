@@ -37,6 +37,7 @@ scoreboard objectives setdisplay belowName PlayerHP
 
 ###敵MOB用スコア
 scoreboard objectives add MobID dummy {"text":"MOB ID"}
+scoreboard objectives add MobUUID dummy {"text":"MOB UUID"}
 scoreboard objectives add Invincible dummy {"text":"無敵スコア"}
 
 ###トリガースコア作成
@@ -45,6 +46,8 @@ scoreboard objectives add Invincible dummy {"text":"無敵スコア"}
 scoreboard objectives add _1 dummy {"text":"一時変数1"}
 scoreboard objectives add _2 dummy {"text":"一時変数2"}
 scoreboard objectives add _3 dummy {"text":"一時変数3"}
+scoreboard objectives add Calc dummy {"text":"計算用変数"}
+scoreboard objectives add Ret dummy {"text":"戻り値用変数"}
 scoreboard objectives add Random dummy {"text":"乱数用変数"}
 
 ##時間管理スコアの設定
