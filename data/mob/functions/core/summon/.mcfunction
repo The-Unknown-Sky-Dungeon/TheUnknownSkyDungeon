@@ -56,6 +56,7 @@
     scoreboard players operation @s HP = @s HPMax
     execute store result score @s ATK run data get storage tusd_: Mob.Attack
     execute store result score @s DEF run data get storage tusd_: Mob.Defense
+    execute store result score @s MobID run data get storage tusd_: Mob.ID
     scoreboard players set @s Invincible 0
 
 ##チーム加入
