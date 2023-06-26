@@ -10,10 +10,10 @@ execute as @e[distance=..64,team=Enemy] run function player:trigger/attacked/sea
 tag @s remove NowTarget
 
 ##ダメージを与える
-#function player:trigger/attacked/damage
+function player:trigger/attacked/damage
 
 ## 検索tag外し
-tag @e[distance=..64,tag=AttagkingEntity] remove AttackingEntity
+tag @e[distance=..64,tag=AttackingEntity] remove AttackingEntity
 
 ##リセット
 advancement revoke @s only player:hurt_player

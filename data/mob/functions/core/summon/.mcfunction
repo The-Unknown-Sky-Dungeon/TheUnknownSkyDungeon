@@ -67,6 +67,9 @@
     attribute @s generic.armor modifier add 0-0-0-0-1 "防具値0" -1.0 multiply
     attribute @s generic.armor_toughness modifier add 0-0-0-0-2 "防具強度0" -1.0 multiply
 
+##MOBUUIDを提供
+    function mob:core/summon/set_uuid
+
 ##頭の上にDangerのテキストディスプレイを呼ぶ
     summon text_display ~ ~ ~ {billboard:"center",shadow:1b,see_through:0b,Tags:["Mob","DangerDisplay"],brightness:{sky:15,block:10},text:'{"text":""}',background:0}
     execute if data storage tusd_: Mob{Danger:"EASY"} run data merge entity @e[distance=..0.01,tag=DangerDisplay,limit=1] {text:'{"text":"EASY","color":"green","bold":true}',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}

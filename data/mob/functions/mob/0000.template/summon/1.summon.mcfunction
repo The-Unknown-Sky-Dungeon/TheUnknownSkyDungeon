@@ -44,6 +44,9 @@
 # ノックバック耐性 (double) (オプション)
     data modify storage tusd_: Mob.KBResist set value 0.0d
 
+# デスログ (TextComponentString) (オプション)
+   data modify storage tusd_: Mob.DeathLog set value '[{"translate":"%1$sは%2$sによってダミーにされてしまった","with":[{"selector":"@s"},{"storage":"tusd_:","nbt":"MobName","interpret":true}]}]'
+
 # 敵モブのAIストレージ
     data modify storage tusd_: AI set value {}
 

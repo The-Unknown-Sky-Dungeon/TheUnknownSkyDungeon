@@ -12,4 +12,7 @@ execute if entity @s[tag=Spawn] run function mob:core/summon/summon_id
 attribute @s[type=zombie] zombie.spawn_reinforcements base set 0.0
 data remove entity @s[type=zombie] Attributes[{Name:"minecraft:zombie.spawn_reinforcements"}].Modifiers
 
+#デバッグ用コード
+tag @s remove MobSetting
+
 tag @s add Initialized
