@@ -6,7 +6,7 @@
 # このFunctionを実行することで召喚できる。
 
 # 元となるMobを召喚する
-    summon zombie ~ ~ ~ {DeathLootTable:"minecraft:empty",Tags:["Mob","Enemy","MobInit"],CanPickUpLoot:0b}
+    summon zombie ~ ~ ~ {DeathLootTable:"minecraft:empty",Tags:["Mob","Enemy","MobInit","CustomAI"],CanPickUpLoot:0b}
 # 敵モブのID (int)
     data modify storage tusd_: Mob.ID set value 0
 # 敵モブの危険度 (string)
@@ -29,7 +29,7 @@
 # 敵モブの装備ドロップ率 (オプション)
     # ハンドドロップ率[メイン,オフ] ([float,float])
         data modify storage tusd_: Mob.HandDropChances set value [0f,0f]
-    # 防具ドロップ率 [ブーツ,レギンス,チェスト,ヘッド] ([float,float])
+    # 防具ドロップ率 [ブーツ,レギンス,チェスト,ヘッド] ([float,float,float,float])
         data modify storage tusd_: Mob.ArmorDropChances set value [0f,0f,0f,0f]
 # 敵モブの体力 (double)
     data modify storage tusd_: Mob.Health set value 50.0d
@@ -48,7 +48,7 @@
    data modify storage tusd_: Mob.DeathLog set value '[{"translate":"%1$sは%2$sによってダミーにされてしまった","with":[{"selector":"@s"},{"storage":"tusd_:","nbt":"MobName","interpret":true}]}]'
 
 # 敵モブのAIストレージ
-    data modify storage tusd_: AI set value {TurnCount:1,Turn:[{Index:1,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{Name:"Function",ID:[0,1]},{Name:"ChangeTurn",Loop:1}]}]},{Index:2,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{Name:"Function",ID:[0,2]},{Name:"ChangeTurn",Loop:1}]}]}]}
+    data modify storage tusd_: AI set value {TurnCount:1,Turn:[{Index:1,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{ID:[0,1]}]}]},{Index:2,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{ID:[0,2]}]}]}]}
 
 
 # 以下のFunctionで敵モブを設定する

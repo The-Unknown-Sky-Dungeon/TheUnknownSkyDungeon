@@ -8,6 +8,9 @@ function core:tick_time
 ##MOB初期化
 execute as @e[tag=!Initialized] at @s run function mob:core/initial
 
+##MOB AIの実行
+execute as @e[tag=Mob,tag=CustomAI] at @s run function mob:core/ai/
+
 ##Playerダメージ表示
 execute as @a[predicate=player:player,scores={Damage=-2147483648..2147483647}] at @s run function mob:core/damage/show_damage_player
 
