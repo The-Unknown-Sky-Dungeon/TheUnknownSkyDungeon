@@ -12,6 +12,6 @@ scoreboard players operation _ Damage = @e[distance=..64,tag=AttackingEntity,lim
 scoreboard players set _ _1 10
 scoreboard players operation _ Damage *= _ _1
 ##自身の防御力取得
-execute store result score @s DEF run function api:player/armor_calc
+execute store result score @s DEF run function api:player/get_armor/
 ##ダメージ計算
 function mob:core/damage/calc

@@ -63,6 +63,9 @@ execute store result score _ 4Tick run scoreboard players get _ _1
 execute store result score _ 10Tick run scoreboard players get _ _1
 execute store result score _ 20Tick run scoreboard players get _ _1
 
+##Oh_My_Dat用のスコア
+scoreboard objectives add OhMyDatCache dummy {"text": "OhMyDatIDのキャッシュ"}
+
 ###システムディメンション設定
 execute in core:system run forceload add 0 0
 execute in core:system run setblock 2 2 2 shulker_box

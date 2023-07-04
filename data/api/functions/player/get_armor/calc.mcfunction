@@ -55,12 +55,11 @@ scoreboard players operation $Def _2 = $Def _1
 scoreboard players operation $Def _2 %= $Def _3
 execute if score $Def _2 matches 50.. run scoreboard players add $Def _1 100
 scoreboard players operation $Def _1 /= $Def _3
-scoreboard players operation $API Ret = $Def _1
 
-##先にリセット
+##Oh_my_datに保存しておく
+execute store result storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].DataCache.GetArmor.Ret int 1 run scoreboard players operation $API Ret = $Def _1
+
+##リセット
 data remove storage calc: List
 data remove storage tusd_api: Equipments
 scoreboard players reset $Def
-
-##戻り値
-scoreboard players get $API Ret

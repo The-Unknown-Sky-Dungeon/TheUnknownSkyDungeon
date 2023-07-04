@@ -8,7 +8,8 @@ scoreboard players reset # 10Tick
 scoreboard players reset # 20Tick
 
 ##処理
-execute store result score _ _1 run time query gametime
+#追加でGame時間をストレージに保存しておく
+execute store result storage tusd_api: GameTime int 1 store result score _ _1 run time query gametime
 execute store success score # 2Tick if score _ _1 = _ 2Tick run scoreboard players add _ 2Tick 2
 execute store success score # 4Tick if score _ _1 = _ 4Tick run scoreboard players add _ 4Tick 4
 execute store success score # 10Tick if score _ _1 = _ 10Tick run scoreboard players add _ 10Tick 10

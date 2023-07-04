@@ -81,7 +81,7 @@
     tag @e[distance=..0.01,tag=DangerDisplaySet] remove DangerDisplaySet
 
 ##Oh_my_datを渡す
-    function oh_my_dat:please
+    function api:oh_my_dat_cache/please
     data modify storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].Mob set from storage tusd_: Mob
     execute if data storage tusd_: AI run tag @s add CustomAI
     execute if data storage tusd_: AI.Attack run tag @s add Call_Attack

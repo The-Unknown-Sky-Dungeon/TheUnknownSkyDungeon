@@ -3,7 +3,7 @@
 ##############################
 
 ##AIを取り出して実行
-function oh_my_dat:please
+function api:oh_my_dat_cache/please
 data modify storage tusd_: AI set from storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].AI
 data modify storage tusd_: SkillList set from storage tusd_: AI.Damage
 function mob:core/ai/skill

@@ -20,8 +20,9 @@ scoreboard players reset _ Damage
 execute store result score _ Damage run data get storage tusd_api: Damage.Value 10
 
 ##自身の防御力取得
+function api:oh_my_dat_cache/please
 scoreboard players set @s DEF 0
-execute unless data storage tusd_api: Damage{BypassArmor:1b} store result score @s DEF run function api:player/armor_calc
+execute unless data storage tusd_api: Damage{BypassArmor:1b} store result score @s DEF run function api:player/get_armor/
 
 ##ダメージ計算
 function mob:core/damage/calc
