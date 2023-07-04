@@ -71,13 +71,14 @@
     function mob:core/summon/set_uuid
 
 ##頭の上にDangerのテキストディスプレイを呼ぶ
-    summon text_display ~ ~ ~ {billboard:"center",shadow:1b,see_through:0b,Tags:["Mob","DangerDisplay"],brightness:{sky:15,block:10},text:'{"text":""}',background:0}
-    execute if data storage tusd_: Mob{Danger:"EASY"} run data merge entity @e[distance=..0.01,tag=DangerDisplay,limit=1] {text:'{"text":"EASY","color":"green","bold":true}',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
-    execute if data storage tusd_: Mob{Danger:"NORMAL"} run data merge entity @e[distance=..0.01,tag=DangerDisplay,limit=1] {text:'{"text":"NORMAL","color":"blue","bold":true}',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
-    execute if data storage tusd_: Mob{Danger:"HARD"} run data merge entity @e[distance=..0.01,tag=DangerDisplay,limit=1] {text:'{"text":"HARD","color":"red","bold":true}',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
-    execute if data storage tusd_: Mob{Danger:"LUNATIC"} run data merge entity @e[distance=..0.01,tag=DangerDisplay,limit=1] {text:'[{"text":"T","color":"#AA3BFF","bold":true,"obfuscated":true},{"text":"LUNATIC","color":"#AA3BFF","bold":true,"obfuscated":false},{"text":"T","color":"#AA3BFF","bold":true,"obfuscated":true}]',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
-    execute if data storage tusd_: Mob{Danger:"CHAOS"} run data merge entity @e[distance=..0.01,tag=DangerDisplay,limit=1] {text:'[{"text":"T","color":"#5D337D","bold":true,"obfuscated":true},{"text":"T","color":"#5D337D","bold":true,"obfuscated":true},{"text":"CHAOS","color":"#5D337D","bold":true,"obfuscated":false},{"text":"T","color":"#5D337D","bold":true,"obfuscated":true},{"text":"T","color":"#5D337D","bold":true,"obfuscated":true}]',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
-    ride @e[distance=..0.01,tag=DangerDisplay,limit=1] mount @s
+    summon text_display ~ ~ ~ {billboard:"center",shadow:1b,see_through:0b,Tags:["Mob","DangerDisplay","DangerDisplaySet"],brightness:{sky:15,block:10},text:'{"text":""}',background:0,alignment:"center"}
+    execute if data storage tusd_: Mob{Danger:"EASY"} run data merge entity @e[distance=..0.01,tag=DangerDisplaySet,limit=1] {text:'{"text":"EASY","color":"green","bold":true}',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
+    execute if data storage tusd_: Mob{Danger:"NORMAL"} run data merge entity @e[distance=..0.01,tag=DangerDisplaySet,limit=1] {text:'{"text":"NORMAL","color":"blue","bold":true}',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
+    execute if data storage tusd_: Mob{Danger:"HARD"} run data merge entity @e[distance=..0.01,tag=DangerDisplaySet,limit=1] {text:'{"text":"HARD","color":"red","bold":true}',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
+    execute if data storage tusd_: Mob{Danger:"LUNATIC"} run data merge entity @e[distance=..0.01,tag=DangerDisplaySet,limit=1] {text:'[{"text":"T","color":"#AA3BFF","bold":true,"obfuscated":true},{"text":"LUNATIC","color":"#AA3BFF","bold":true,"obfuscated":false},{"text":"T","color":"#AA3BFF","bold":true,"obfuscated":true}]',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
+    execute if data storage tusd_: Mob{Danger:"CHAOS"} run data merge entity @e[distance=..0.01,tag=DangerDisplaySet,limit=1] {text:'[{"text":"T","color":"#5D337D","bold":true,"obfuscated":true},{"text":"T","color":"#5D337D","bold":true,"obfuscated":true},{"text":"CHAOS","color":"#5D337D","bold":true,"obfuscated":false},{"text":"T","color":"#5D337D","bold":true,"obfuscated":true},{"text":"T","color":"#5D337D","bold":true,"obfuscated":true}]',transformation:{translation:[0f,1f,0f],scale:[1f,1f,1f]}}
+    ride @e[distance=..0.01,tag=DangerDisplaySet,limit=1] mount @s
+    tag @e[distance=..0.01,tag=DangerDisplaySet] remove DangerDisplaySet
 
 ##Oh_my_datを渡す
     function oh_my_dat:please
@@ -87,6 +88,9 @@
     execute if data storage tusd_: AI.Death run tag @s add Call_Death
     execute if data storage tusd_: AI.Damage run tag @s add Call_Damage
     execute if data storage tusd_: AI run data modify storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].AI set from storage tusd_: AI
+
+##InitialAIの実行
+    execute if entity @s[tag=InitialAI] at @s run function mob:core/ai/initial
 
 ##一個タグを残す
     tag @s add MobSetting

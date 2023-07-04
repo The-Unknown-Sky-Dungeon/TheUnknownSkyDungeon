@@ -12,6 +12,9 @@ tag @s remove NowTarget
 ##ダメージを与える
 function player:trigger/attacked/damage
 
+##AttackAIの発動
+execute as @e[distance=..64,tag=AttackingEntity,limit=1] if entity @s[tag=AttackAI] at @s run function mob:core/ai/attack
+
 ## 検索tag外し
 tag @e[distance=..64,tag=AttackingEntity] remove AttackingEntity
 

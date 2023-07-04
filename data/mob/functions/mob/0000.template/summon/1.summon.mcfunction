@@ -6,7 +6,7 @@
 # このFunctionを実行することで召喚できる。
 
 # 元となるMobを召喚する
-    summon zombie ~ ~ ~ {DeathLootTable:"minecraft:empty",Tags:["Mob","Enemy","MobInit","CustomAI"],CanPickUpLoot:0b}
+    summon zombie ~ ~ ~ {DeathLootTable:"minecraft:empty",Tags:["Mob","Enemy","MobInit","CustomAI","DeathAI"],CanPickUpLoot:0b}
 # 敵モブのID (int)
     data modify storage tusd_: Mob.ID set value 0
 # 敵モブの危険度 (string)
@@ -48,10 +48,10 @@
    data modify storage tusd_: Mob.DeathLog set value '[{"translate":"%1$sは%2$sによってダミーにされてしまった","with":[{"selector":"@s"},{"storage":"tusd_:","nbt":"MobName","interpret":true}]}]'
 
 # 敵モブのAIストレージ
-    data modify storage tusd_: AI set value {TurnCount:1,Turn:[{Index:1,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{ID:[0,1]}]}]},{Index:2,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{ID:[0,2]}]}]}]}
+    data modify storage tusd_: AI set value {Death:[{ID:[0,2]}],TurnCount:1,Turn:[{Index:1,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{ID:[0,1]}]}]},{Index:2,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{ID:[0,2]}]}]}]}
 
 
-# 以下のFunctionで敵モブを設定する
+# 以下の処理で敵モブを設定する
     execute as @e[distance=..0.01,tag=MobInit,sort=nearest,limit=1] run function mob:core/summon/
     execute unless entity @s[nbt={UUID:[I;0,0,0,0]}] run ride @e[distance=..16,tag=MobInit,sort=nearest,limit=1] mount @s
     tag @e[distance=..16,tag=MobSetting] remove MobInit
