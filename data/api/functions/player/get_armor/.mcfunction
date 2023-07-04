@@ -14,5 +14,4 @@ scoreboard players reset $NotLatestData
 function api:oh_my_dat_cache/load
 
 ##戻り値
-tellraw @a {"score":{"name": "$API", "objective": "Ret"}}
 scoreboard players get $API Ret
