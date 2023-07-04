@@ -39,6 +39,7 @@ scoreboard objectives setdisplay belowName PlayerHP
 scoreboard objectives add MobID dummy {"text":"MOB ID"}
 scoreboard objectives add MobUUID dummy {"text":"MOB UUID"}
 scoreboard objectives add Invincible dummy {"text":"無敵スコア"}
+scoreboard objectives add ResistRate dummy {"text":"ダメージ軽減率"}
 
 ###トリガースコア作成
 scoreboard objectives add UseShieldTime dummy {"text":"盾を使用した最新時間"}
