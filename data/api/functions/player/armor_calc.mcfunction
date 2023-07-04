@@ -14,7 +14,7 @@ data modify storage calc: List append from storage tusd_api: Equipments[2].tag.A
 data modify storage calc: List append from storage tusd_api: Equipments[3].tag.AttributeModifiers[{AttributeName:"generic.armor",Operation:0,Slot:"legs"}].Amount
 data modify storage calc: List append from storage tusd_api: Equipments[4].tag.AttributeModifiers[{AttributeName:"generic.armor",Operation:0,Slot:"chest"}].Amount
 data modify storage calc: List append from storage tusd_api: Equipments[5].tag.AttributeModifiers[{AttributeName:"generic.armor",Operation:0,Slot:"head"}].Amount
-execute store result score _ _1 run function calc:list/sum/
+execute store result score $Def _1 run function calc:list/sum/
 
 ##Muitiply_Base
 data modify storage calc: List set value []
@@ -24,8 +24,8 @@ data modify storage calc: List append from storage tusd_api: Equipments[2].tag.A
 data modify storage calc: List append from storage tusd_api: Equipments[3].tag.AttributeModifiers[{AttributeName:"generic.armor",Operation:1,Slot:"legs"}].Amount
 data modify storage calc: List append from storage tusd_api: Equipments[4].tag.AttributeModifiers[{AttributeName:"generic.armor",Operation:1,Slot:"chest"}].Amount
 data modify storage calc: List append from storage tusd_api: Equipments[5].tag.AttributeModifiers[{AttributeName:"generic.armor",Operation:1,Slot:"head"}].Amount
-execute store result score _ _2 run function calc:list/sum/
-scoreboard players add _ _2 100
+execute store result score $Def _2 run function calc:list/sum/
+scoreboard players add $Def _2 100
 
 ##Muitiply
 data modify storage calc: List set value []
@@ -35,28 +35,32 @@ data modify storage calc: List append from storage tusd_api: Equipments[2].tag.A
 data modify storage calc: List append from storage tusd_api: Equipments[3].tag.AttributeModifiers[{AttributeName:"generic.armor",Operation:2,Slot:"legs"}].Amount
 data modify storage calc: List append from storage tusd_api: Equipments[4].tag.AttributeModifiers[{AttributeName:"generic.armor",Operation:2,Slot:"chest"}].Amount
 data modify storage calc: List append from storage tusd_api: Equipments[5].tag.AttributeModifiers[{AttributeName:"generic.armor",Operation:2,Slot:"head"}].Amount
-execute store result score _ _3 run function calc:list/product/
+execute store result score $Def _3 run function calc:list/product/
+
+##合算
+scoreboard players operation $Def _1 *= $Def _2
+scoreboard players set $Def _2 100
+scoreboard players operation $Def _1 /= $Def _2
+scoreboard players operation $Def _1 /= $Def _2
+scoreboard players operation $Def _1 *= $Def _3
+scoreboard players operation $Def _1 /= $Def _2
+
+##パッシブ込みの計算
+execute store result score $Def _2 run function api:player/armor_modifier_calc
+scoreboard players operation $Def _1 *= $Def _2
+
+##四捨五入処理
+scoreboard players set $Def _3 100
+scoreboard players operation $Def _2 = $Def _1
+scoreboard players operation $Def _2 %= $Def _3
+execute if score $Def _2 matches 50.. run scoreboard players add $Def _1 100
+scoreboard players operation $Def _1 /= $Def _3
+scoreboard players operation $API Ret = $Def _1
 
 ##先にリセット
 data remove storage calc: List
 data remove storage tusd_api: Equipments
+scoreboard players reset $Def
 
-##合算
-scoreboard players operation _ _1 *= _ _2
-scoreboard players set _ _2 100
-scoreboard players operation _ _1 /= _ _2
-scoreboard players operation _ _1 /= _ _2
-scoreboard players operation _ _1 *= _ _3
-scoreboard players operation _ _1 /= _ _2
-
-##スコア退避しつつパッシブ計算
-scoreboard players operation # _1 = _ _1
-execute store result score # _2 run function api:player/armor_modifier_calc
-scoreboard players operation # _1 *= # _2
-
-##四捨五入処理
-scoreboard players set _ _1 100
-scoreboard players operation # _2 = # _1
-scoreboard players operation # _2 %= _ _1
-execute if score # _2 matches 50.. run scoreboard players add # _1 100
-scoreboard players operation # _1 /= _ _1
+##戻り値
+scoreboard players get $API Ret
