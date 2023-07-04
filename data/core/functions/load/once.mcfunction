@@ -41,6 +41,7 @@ scoreboard objectives add MobUUID dummy {"text":"MOB UUID"}
 scoreboard objectives add Invincible dummy {"text":"無敵スコア"}
 
 ###トリガースコア作成
+scoreboard objectives add UseShieldTime dummy {"text":"盾を使用した最新時間"}
 
 ###変数、乱数
 scoreboard objectives add _1 dummy {"text":"一時変数1"}

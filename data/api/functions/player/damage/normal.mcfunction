@@ -17,7 +17,7 @@ execute unless entity @s[scores={ScoreToHealth=-2147483648..2147483647}] store r
 
 ##初期化とダメージの代入
 scoreboard players reset _ Damage
-execute store result score _ Damage run data get storage tusd_api: Damage.Value
+execute store result score _ Damage run data get storage tusd_api: Damage.Value 10
 
 ##自身の防御力取得
 scoreboard players set @s DEF 0
@@ -25,6 +25,9 @@ execute unless data storage tusd_api: Damage{BypassArmor:1b} store result score 
 
 ##ダメージ計算
 function mob:core/damage/calc
+
+##ダメージ演出
+function api:player/damage/makeup
 
 ##リセット
 data remove storage tusd_api: Damage
