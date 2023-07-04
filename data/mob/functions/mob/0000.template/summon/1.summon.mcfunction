@@ -48,7 +48,7 @@
    data modify storage tusd_: Mob.DeathLog set value '[{"translate":"%1$sは%2$sによってダミーにされてしまった","with":[{"selector":"@s"},{"storage":"tusd_:","nbt":"MobName","interpret":true}]}]'
 
 # 敵モブのAIストレージ
-    data modify storage tusd_: AI set value {Death:[{ID:[0,2]}],TurnCount:1,Turn:[{Index:1,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{ID:[0,1]}]}]},{Index:2,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{ID:[0,2]}]}]}]}
+    data modify storage tusd_: AI set value {Death:[{ID:[0,2]}],TurnCount:1,Turn:[{Index:1,Skill:[{Interval:{Min:10,Max:60,Current:30},Loop:{Max:1,Current:1},Call:[{ID:[0,1]}]}]},{Index:2,Skill:[{Interval:{Min:10,Max:30,Current:15},Loop:{Max:1,Current:1},Call:[{ID:[0,2]}]}]}]}
 
 
 # 以下の処理で敵モブを設定する
