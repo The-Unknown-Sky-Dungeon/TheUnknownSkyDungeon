@@ -50,6 +50,7 @@ scoreboard objectives add _2 dummy {"text":"一時変数2"}
 scoreboard objectives add _3 dummy {"text":"一時変数3"}
 scoreboard objectives add Calc dummy {"text":"計算用変数"}
 scoreboard objectives add Ret dummy {"text":"戻り値用変数"}
+scoreboard objectives add Lib dummy {"text":"ライブラリ用変数"}
 scoreboard objectives add Random dummy {"text":"乱数用変数"}
 
 ##時間管理スコアの設定
