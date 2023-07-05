@@ -8,7 +8,7 @@
 #
 # @input
 #   as entity
-#   storage lib:
+#   storage tusd_lib:
 #       Argument.KnockbackResist?: boolean
 #       Argument.VectorMagnitude: double
 # @api
@@ -20,3 +20,6 @@
     execute if entity @s[type=player] run tellraw @s [{"text":"MotionLibの実行者はPlayer以外のEntityである必要があります"}]
 # Playerじゃなければ本処理に移行
     execute unless entity @s[type=player] run function lib:motion/core/
+
+# リセット
+    data remove storage tusd_lib: Argument

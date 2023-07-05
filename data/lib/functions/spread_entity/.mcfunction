@@ -12,3 +12,5 @@
 # 身代わりのMarkerを召喚
     execute if entity @s[type=!player] run function lib:spread_entity/core/non-player
     execute if entity @s[type=player] run function lib:spread_entity/core/player/
+# リセット
+    data remove storage tusd_lib: Argument
