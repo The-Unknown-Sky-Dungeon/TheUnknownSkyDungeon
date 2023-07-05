@@ -32,6 +32,7 @@
     function lib:forward_spreader/core/fetch
 # リセット
     scoreboard players reset $XYZ
+    execute as 0-0-0-0-0 run function calc:geometory/return
     data remove storage tusd_lib: Argument.Distance
     data remove storage tusd_lib: Argument.Spread
     data remove storage tusd_lib: Rotation
