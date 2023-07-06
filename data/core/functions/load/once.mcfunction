@@ -38,6 +38,7 @@ scoreboard objectives setdisplay belowName PlayerHP
 ###敵MOB用スコア
 scoreboard objectives add MobID dummy {"text":"MOB ID"}
 scoreboard objectives add MobUUID dummy {"text":"MOB UUID"}
+scoreboard objectives add NativeFlag dummy {"text":"常時Tick処理フラグ"}
 scoreboard objectives add Invincible dummy {"text":"無敵スコア"}
 scoreboard objectives add ResistRate dummy {"text":"ダメージ軽減率"}
 

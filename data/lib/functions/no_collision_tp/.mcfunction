@@ -10,10 +10,10 @@
 # @api
 
 # 液体込みの判定
-    execute unless data storage tusd_lib: Argument{WithoutFluid:1b} run function lib:no_collision_tp/core/fluid
+    execute unless data storage tusd_lib: Argument{WithoutFluid:1b} at @s run function lib:no_collision_tp/core/fluid
 
 # 液体抜きの判定
-    execute if data storage tusd_lib: Argument{WithoutFluid:1b} run function lib:no_collision_tp/core/without_fluid
+    execute if data storage tusd_lib: Argument{WithoutFluid:1b} at @s run function lib:no_collision_tp/core/without_fluid
 
 # リセット
     data remove storage tusd_lib: Argument

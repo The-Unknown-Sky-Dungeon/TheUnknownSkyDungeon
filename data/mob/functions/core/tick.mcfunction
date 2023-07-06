@@ -2,6 +2,9 @@
 ### MOB毎ティック処理
 ##############################
 
+## NativeTask
+execute if entity @s[scores={NativeFlag=1..}] run function mob:core/native_task/
+
 ## Mob自然ダメージ反映
 execute if entity @s[tag=Enemy,nbt=!{AbsorptionAmount:1000000f}] run function mob:core/damage/absorption
 

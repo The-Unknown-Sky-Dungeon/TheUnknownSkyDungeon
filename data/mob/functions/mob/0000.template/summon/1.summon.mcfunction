@@ -13,23 +13,23 @@
     data modify storage tusd_: Mob.Danger set value "LUNATIC"
 # 敵モブの名前 (TextComponentString) (オプション)
     data modify storage tusd_: Mob.Name set value '{"translate":"ダミーゾンビ","color":"white"}'
-# 敵モブの見た目
-    # メインハンド　(Compound(Item)
+# 敵モブの見た目 (オプション)
+    # メインハンド (Compound(Item))
         data modify storage tusd_: Mob.Mainhand set value {}
-    # オフハンド　　(Compound(Item)
+    # オフハンド (Compound(Item))
         data modify storage tusd_: Mob.Offhand set value {}
-    # 頭
+    # 頭 (Compound(Item))
         data modify storage tusd_: Mob.Head set value {id:"minecraft:white_stained_glass",Count:1b,tag:{Unbreakable:1b}}
-    # 胴体
+    # 胴体 (Compound(Item))
         data modify storage tusd_: Mob.Chest set value {}
-    # 脚
+    # 脚 (Compound(Item))
         data modify storage tusd_: Mob.Legs set value {}
-    # 足
+    # 足 (Compound(Item))
         data modify storage tusd_: Mob.Feet set value {}
 # 敵モブの装備ドロップ率 (オプション)
-    # ハンドドロップ率[メイン,オフ] ([float,float])
+    # ハンドドロップ率[メイン,オフ] (float[2])
         data modify storage tusd_: Mob.HandDropChances set value [0f,0f]
-    # 防具ドロップ率 [ブーツ,レギンス,チェスト,ヘッド] ([float,float,float,float])
+    # 防具ドロップ率  [ブーツ,レギンス,チェスト,ヘッド] (float[4]])
         data modify storage tusd_: Mob.ArmorDropChances set value [0f,0f,0f,0f]
 # 敵モブの体力 (double)
     data modify storage tusd_: Mob.Health set value 50.0d
