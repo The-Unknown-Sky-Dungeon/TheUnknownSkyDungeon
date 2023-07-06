@@ -53,5 +53,5 @@
 
 # 以下の処理で敵モブを設定する
     execute as @e[distance=..0.01,tag=MobInit,sort=nearest,limit=1] run function mob:core/summon/
-    execute unless entity @s[nbt={UUID:[I;0,0,0,0]}] run ride @e[distance=..16,tag=MobInit,sort=nearest,limit=1] mount @s
+    execute if entity @s[tag=TargetEntity] run ride @e[distance=..16,tag=MobInit,sort=nearest,limit=1] mount @s
     tag @e[distance=..16,tag=MobSetting] remove MobInit
