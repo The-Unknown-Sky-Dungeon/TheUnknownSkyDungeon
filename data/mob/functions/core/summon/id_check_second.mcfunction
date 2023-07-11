@@ -7,7 +7,7 @@ execute store result score _ MobID run data get storage tusd_: SummonIDLayer[-1]
 
 ##ID(0以上)があれば気合検索
 #後ほど軽量化処理を施すが今はこのままでOK
-execute if score _ MobID matches 0.. run function #mob:mob/summon
+execute if score _ MobID matches 0.. run function #asset:mobs/summon
 execute unless entity @e[distance=..16,tag=MobLeader] run tag @e[distance=..16,tag=MobSetting] add MobLeader
 
 ##まだ残っていたら召喚する

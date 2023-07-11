@@ -1,6 +1,6 @@
 {
     "replace": false,
     "values": [
-        "mob:mob/0000.template/function/"
+        "asset:mobs/0000.template/function/"
     ]
 }

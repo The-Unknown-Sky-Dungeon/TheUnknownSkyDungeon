@@ -1,0 +1,6 @@
+{
+    "replace": false,
+    "values": [
+        "asset:mobs/0000.template/summon/1.check_summon_id"
+    ]
+}
