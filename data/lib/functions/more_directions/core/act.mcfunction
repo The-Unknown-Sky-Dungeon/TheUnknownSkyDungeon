@@ -24,3 +24,6 @@
 # MoreDirecitonsのストレージが空になったら、終了処理をする
     execute unless data storage tusd_lib: MoreDirections[0] run scoreboard players remove @s NativeFlag 1
     execute unless data storage tusd_lib: MoreDirections[0] run tag @s remove MoreDirect
+
+# DirectionAECならキル
+    execute unless data storage tusd_lib: MoreDirections[0] if entity @s[tag=DirectionAEC] run tag @s add Garbage
