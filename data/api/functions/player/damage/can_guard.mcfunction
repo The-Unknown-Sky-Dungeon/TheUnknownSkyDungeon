@@ -1,12 +1,15 @@
-##############################
-###コマンドでプレイヤーに盾でガード可能なダメージを与える
-##############################
+#> api:player/damage/can_guard
 #
-# Value : double 
-# BypassArmor : boolean
-# InFront : boolean
+# コマンドでプレイヤーに盾でガード可能なダメージを与える
+#@input storage tusd_api: Damage.
+#   Value : double 
+#   BypassArmor : boolean
+#   DeathLog : TextComponentString
+#   InFront : boolean
 #
-#必ず対象となるプレイヤーを実行者とすること
+# 必ず対象となるプレイヤーを実行者とすること
+#@api
+
 
 ##ストレージ検証
 execute unless data storage tusd_api: Damage.Value run tellraw @a [{"text":"引数が足りません"},{"text":" Damage.Value","color":"red"}]
@@ -28,6 +31,12 @@ execute unless data storage tusd_api: Damage{BypassArmor:1b} store result score 
 execute store result score _ UseShieldTime run time query gametime
 execute if score _ UseShieldTime = @s UseShieldTime unless data storage tusd_api: Damage.InFront run scoreboard players reset _ UseShieldTime
 execute if score _ UseShieldTime = @s UseShieldTime if data storage tusd_api: Damage.InFront facing entity @s feet facing ^ ^ ^-1 positioned as @s positioned ^ ^ ^1 rotated as @s positioned ^ ^ ^-1 if entity @s[distance=..1.415] run scoreboard players reset _ UseShieldTime
+
+##デスログを持ってくる
+data modify storage tusd_: MobName set from storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].Mob.Name
+execute if data storage tusd_api: Damage.DeathLog run data modify storage tusd_: DeathLog set from storage tusd_api: Damage.DeathLog
+execute unless data storage tusd_api: Damage.DeathLog run data modify storage tusd_: DeathLog set from storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].Mob.DeathLog
+execute unless data storage tusd_: DeathLog run data modify storage tusd_: DeathLog set value '[{"translate":"%1$sは%2$sによって殺されてしまった","with":[{"selector":"@s"},{"storage":"tusd_:","nbt":"MobName","interpret":true}]}]'
 
 ##ダメージ計算
 execute if score _ UseShieldTime matches -2147483648..2147483647 run function mob:core/damage/calc
