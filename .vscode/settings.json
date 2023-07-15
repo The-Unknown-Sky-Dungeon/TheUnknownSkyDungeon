@@ -1,3 +1,317 @@
 {
-    "datapack.env.cmdVersion": "1.20"
+    "datapack.env.cmdVersion": "1.20",
+    "mcdutil.createDatapackTemplate.defaultFolder": false,
+    "mcdutil.createDatapackTemplate.defaultLoadAndTick": false,
+    "mcdutil.createDatapackTemplate.defaultVanillaData": false,
+    "mcdutil.createFile.fileTemplate": {
+        "function": [
+            "#> %fileResourcePath%",
+            "#",
+            "# %cursor%",
+            "#",
+            "# @within %nowOpenFileType% %nowOpenFileResourcePath%"
+        ],
+        "advancement": [
+            "{",
+            "    \"criteria\": {",
+            "        \"trigger\": {",
+            "            \"trigger\": \"%cursor%\"",
+            "        }",
+            "    }",
+            "}"
+        ],
+        "predicate": [
+            "{",
+            "    \"condition\": \"%cursor%\"",
+            "}"
+        ],
+        "tag/block": [
+            "{",
+            "    \"values\": [",
+            "        %cursor%",
+            "    ]",
+            "}"
+        ],
+        "tag/entity_type": [
+            "{",
+            "    \"values\": [",
+            "        %cursor%",
+            "    ]",
+            "}"
+        ],
+        "tag/fluid": [
+            "{",
+            "    \"values\": [",
+            "        %cursor%",
+            "    ]",
+            "}"
+        ],
+        "tag/function": [
+            "{",
+            "    \"values\": [",
+            "        %cursor%",
+            "    ]",
+            "}"
+        ],
+        "tag/item": [
+            "{",
+            "    \"values\": [",
+            "        %cursor%",
+            "    ]",
+            "}"
+        ]    
+    },
+    "mcdutil.createDatapackTemplate.customTemplate": [
+        {
+            "label": "MOB/テンプレート",
+            "picked": true,
+            "generates": [
+                {
+                    "type": "file",
+                    "rel": "data/asset/tags/functions/mobs/function.json",
+                    "content": {
+                        "values": [
+                            "asset:mobs/%namespace%/function/"
+                        ]
+                    },
+                    "append": {
+                        "addFirst": true,
+                        "key": "values",
+                        "elem": "asset:mobs/%namespace%/function/"
+                    }
+                },
+                {
+                    "type": "file",
+                    "rel": "data/asset/tags/functions/mobs/summon.json",
+                    "content": {
+                        "values": [
+                            "asset:mobs/%namespace%/summon/1.check_summon_id"
+                        ]
+                    },
+                    "append": {
+                        "addFirst": true,
+                        "key": "values",
+                        "elem": "asset:mobs/%namespace%/summon/1.check_summon_id"
+                    }
+                },
+                {
+                    "type": "file",
+                    "rel": "data/asset/functions/mobs/%namespace%/summon/1.check_summon_id.mcfunction",
+                    "content": [
+                        "#> asset:mobs/%namespace%/summon/1.check_summon_id",
+                        "#",
+                        "# 敵モブIDが$MobIDと合致するかをcheckする",
+                        "#",
+                        "# 新たに敵モブを作る際は、スコアの条件にID番号を入力すること",
+                        "# また entity:mob_ai のFunctionTagに必ず登録すること",
+                        "#",
+                        "# @within tag/function asset:mobs/summon",
+                        "",
+                        "execute if score _ MobID matches %MobID% run function asset:mobs/%namespace%/summon/2.summon"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "rel": "data/asset/functions/mobs/%namespace%/summon/2.summon.mcfunction",
+                    "content": [
+                        "#> asset:mobs/%namespace%/summon/2.summon",
+                        "#",
+                        "# 敵モブ作成部 ここで基本設定を行う",
+                        "#",
+                        "# 敵モブのIDや名前などをここで設定する",
+                        "# このFunctionを実行することで召喚できる",
+                        "#",
+                        "# @within function asset:mobs/%namespace%/summon/1.check_summon_id",
+                        "",
+                        "# 元となるMobを召喚する",
+                        "   summon %entity% ~ ~ ~ {DeathLootTable:\"minecraft:empty\",Tags:[\"Mob\",\"Enemy\",\"MobInit\"],CanPickUpLoot:0b}",
+                        "# 敵モブのID (int)",
+                        "   data modify storage tusd_: Mob.ID set value %MobID%",
+                        "# 敵モブの危険度 (string)",
+                        "   data modify storage tusd_: Mob.Danger set value \"LUNATIC\"",
+                        "# 敵モブの名前 (TextComponentString) (オプション)",
+                        "   data modify storage tusd_: Mob.Name set value",
+                        "# 敵モブの見た目 (オプション)",
+                        "   # メインハンド (Compound(Item))",
+                        "       data modify storage tusd_: Mob.Mainhand set value {}",
+                        "   # オフハンド (Compound(Item))",
+                        "       data modify storage tusd_: Mob.Offhand set value {}",
+                        "   # 頭 (Compound(Item))",
+                        "       data modify storage tusd_: Mob.Head set value {}",
+                        "   # 胴体 (Compound(Item))",
+                        "       data modify storage tusd_: Mob.Chest set value {}",
+                        "   # 脚 (Compound(Item))",
+                        "       data modify storage tusd_: Mob.Legs set value {}",
+                        "   # 足 (Compound(Item))",
+                        "       data modify storage tusd_: Mob.Feet set value {}",
+                        "# 敵モブの装備ドロップ率 (オプション)",
+                        "   # ハンドドロップ率[メイン,オフ] (float[2])",
+                        "       data modify storage tusd_: Mob.HandDropChances set value [0f,0f]",
+                        "   # 防具ドロップ率  [ブーツ,レギンス,チェスト,ヘッド] (float[4]])",
+                        "       data modify storage tusd_: Mob.ArmorDropChances set value [0f,0f,0f,0f]",
+                        "# 敵モブの体力 (double)",
+                        "   data modify storage tusd_: Mob.Health set value",
+                        "# 敵モブの速度 (double)",
+                        "   data modify storage tusd_: Mob.Speed set value",
+                        "# 敵モブの基礎攻撃力 (int)",
+                        "   data modify storage tusd_: Mob.Attack set value",
+                        "# 敵モブの防具値 (int)",
+                        "   data modify storage tusd_: Mob.Defense set value",
+                        "# 索敵範囲 (double) (オプション)",
+                        "   data modify storage tusd_: Mob.FollowRange set value",
+                        "# ノックバック耐性 (double) (オプション)",
+                        "   data modify storage tusd_: Mob.KBResist set value",
+                        "",
+                        "# デスログ (TextComponentString) (オプション)",
+                        "   data modify storage tusd_: Mob.DeathLog set value",
+                        "",
+                        "# 敵モブのAIストレージ",
+                        "   data modify storage tusd_: AI set value",
+                        "",
+                        "",
+                        "# 以下の処理で敵モブを設定する",
+                        "   execute as @e[distance=..0.01,tag=MobInit,sort=nearest,limit=1] run function mob:core/summon/",
+                        "   execute if entity @s[tag=TargetEntity] run ride @e[distance=..16,tag=MobInit,sort=nearest,limit=1] mount @s",
+                        "   tag @e[distance=..16,tag=MobSetting] remove MobInit"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "rel": "data/asset/functions/mobs/%namespace%/function/.mcfunction",
+                    "content": [
+                        "#> asset:mobs/%namespace%/function/",
+                        "#",
+                        "# Function_IDの検索",
+                        "#",
+                        "# 新規にモブを作る際、IDの分岐はここですること",
+                        "#",
+                        "# @within tag/function asset:mobs/function",
+                        "",
+                        "execute if score $FunctionID _1 matches 1",
+                    ]
+                }
+            ],
+            "customQuestion": [
+                {
+                    "name": "MobID",
+                    "question": "MobのID",
+                    "pattern": "[1-9][0-9]*",
+                    "patternErrorMessage": "数値のみが許されます"
+                },
+                {
+                    "name": "entity",
+                    "question": "元となるentity",
+                    "pattern": "area_effect_cloud|armor_stand|arrow|axolotl|bat|bee|blaze|boat|cat|cave_spider|chest_minecart|chicken|cod|command_block_minecart|cow|creeper|dolphin|donkey|dragon_fireball|drowned|egg|elder_guardian|end_crystal|ender_dragon|ender_pearl|enderman|endermite|evoker|evoker_fangs|experience_bottle|experience_orb|eye_of_ender|falling_block|fireball|firework_rocket|fox|furnace_minecart|ghast|giant|glow_item_frame|glow_squid|goat|guardian|hoglin|hopper_minecart|horse|husk|illusioner|iron_golem|item|item_frame|leash_knot|lightning_bolt|llama|llama_spit|magma_cube|marker|minecart|mooshroom|mule|ocelot|painting|panda|parrot|phantom|pig|piglin|piglin_brute|pillager|polar_bear|potion|pufferfish|rabbit|ravager|salmon|sheep|shulker|shulker_bullet|silverfish|skeleton|skeleton_horse|slime|small_fireball|snow_golem|snowball|spawner_minecart|spectral_arrow|spider|squid|stray|strider|tnt|tnt_minecart|trader_llama|trident|tropical_fish|turtle|vex|villager|vindicator|wandering_trader|witch|wither|wither_skeleton|wither_skull|wolf|zoglin|zombie|zombie_horse|zombie_villager|zombified_piglin",
+                    "patternErrorMessage": "Mobの種類のみが許されます"
+                }
+            ]
+        },
+        {
+            "label": "MoreDirections/テンプレート",
+            "picked": true,
+            "generates": [
+                {
+                    "type": "file",
+                    "rel": "data/asset/tags/functions/more_directions/act.json",
+                    "content": {
+                        "values": [
+                            "asset:more_directions/%namespace%/act/1.checkid"
+                        ]
+                    },
+                    "append": {
+                        "addFirst": true,
+                        "key": "values",
+                        "elem": "asset:more_directions/%namespace%/act/1.checkid"
+                    }
+                },
+                {
+                    "type": "file",
+                    "rel": "data/asset/tags/functions/more_directions/set.json",
+                    "content": {
+                        "values": [
+                            "asset:more_directions/%namespace%/set/1.checkid"
+                        ]
+                    },
+                    "append": {
+                        "addFirst": true,
+                        "key": "values",
+                        "elem": "asset:more_directions/%namespace%/set/1.checkid"
+                    }
+                },
+                {
+                    "type": "file",
+                    "rel": "data/asset/functions/more_directions/%namespace%/act/1.checkid.mcfunction",
+                    "content": [
+                        "#> asset:more_directions/%namespace%/act/1.checkid",
+                        "#",
+                        "# MoreDirectionsを実行時に呼び出されるFunciton",
+                        "#",
+                        "# @within tag/function asset:more_directions/act",
+                        "",
+                        "execute if score _ Lib matches %DirectionID% run function asset:more_directions/%namespace%/act/2.act"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "rel": "data/asset/functions/more_directions/%namespace%/act/2.act.mcfunction",
+                    "content": [
+                        "#> asset:more_directions/%namespace%/act/2.act",
+                        "#",
+                        "# MoreDirectionsを実行時に呼び出されるFunciton",
+                        "#",
+                        "# ここで実行分岐を行います",
+                        "# _ Calcというスコアに実行段階が保存されていますのでそれに従って分岐させてください",
+                        "#",
+                        "# @within function asset:more_directions/%namespace%/act/1.checkid"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "rel": "data/asset/functions/more_directions/%namespace%/set/1.checkid.mcfunction",
+                    "content": [
+                        "#> asset:more_directions/%namespace%/set/1.checkid",
+                        "#",
+                        "# MoreDirectionsを設定時に呼び出されるFunciton",
+                        "#",
+                        "# @within tag/function asset:more_directions/set",
+                        "",
+                        "execute if score _ Lib matches %DirectionID% run function asset:more_directions/%namespace%/set/2.set"
+                    ]
+                },
+                {
+                    "type": "file",
+                    "rel": "data/asset/functions/more_directions/%namespace%/set/2.set.mcfunction",
+                    "content": [
+                        "#> asset:more_directions/%namespace%/set/2.set",
+                        "#",
+                        "# MoreDirectionsを設定時に呼び出されるFunciton",
+                        "#",
+                        "# ここで登録処理を行います",
+                        "#",
+                        "# @within function asset:more_directions/%namespace%/set/1.checkid",
+                        "",
+                        "# 実行回数を設定する",
+                        "   data modify storage tusd_lib: MoreDirections.Count set value",
+                        "",
+                        "# 何Tickごとに実行するかを設定する",
+                        "   data modify storage tusd_lib: MoreDirections.NextAct set value"
+                    ]
+                }
+            ],
+            "customQuestion": [
+                {
+                    "name": "DirectionID",
+                    "question": "DirectionのID",
+                    "pattern": "[1-9][0-9]*",
+                    "patternErrorMessage": "数値のみが許されます"
+                }
+            ]
+        }
+    ],
+    "datapack.env.dataVersion": "1.20.1",
+    "datapack.env.defaultVisibility": "public",
+    "datapack.env.dependsOnVanilla": true,
+    "datapack.env.detectionDepth": 1,
+    "datapack.lint.eol": "LF",
+    "datapack.lint.idOmitDefaultNamespace": null
 }
