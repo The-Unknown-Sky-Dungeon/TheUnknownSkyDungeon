@@ -246,13 +246,13 @@
             "generates": [
                 {
                     "type": "file",
-                    "rel": "data/asset/functions/mob/%namespace%/_index.d.mcfunction",
+                    "rel": "data/asset/functions/mobs/%namespace%/_index.d.mcfunction",
                     "content": [
-                        "#> asset:mob/%namespace%/_index.d",
+                        "#> asset:mobs/%namespace%/_index.d",
                         "# @private",
                         "",
                         "#> tag",
-                        "# @within function asset:mob/%namespace%/**",
+                        "# @within function asset:mobs/%namespace%/**",
                         "    #declare"
                     ]
                 }
