@@ -41,6 +41,7 @@ scoreboard objectives add MobUUID dummy {"text":"MOB UUID"}
 scoreboard objectives add NativeFlag dummy {"text":"常時Tick処理フラグ"}
 scoreboard objectives add Invincible dummy {"text":"無敵スコア"}
 scoreboard objectives add ResistRate dummy {"text":"ダメージ軽減率"}
+function #asset:mobs/load
 
 ###トリガースコア作成
 scoreboard objectives add UseShieldTime dummy {"text":"盾を使用した最新時間"}
