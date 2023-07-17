@@ -41,6 +41,8 @@ scoreboard objectives add MobUUID dummy {"text":"MOB UUID"}
 scoreboard objectives add NativeFlag dummy {"text":"常時Tick処理フラグ"}
 scoreboard objectives add Invincible dummy {"text":"無敵スコア"}
 scoreboard objectives add ResistRate dummy {"text":"ダメージ軽減率"}
+scoreboard objectives add SpawnerHP dummy {"text":"スポナーの体力"}
+scoreboard objectives add SpawnerDelay dummy {"text":"MOB召喚までの時間"}
 function #asset:mobs/load
 
 ###トリガースコア作成
