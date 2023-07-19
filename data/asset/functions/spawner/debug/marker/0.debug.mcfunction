@@ -12,16 +12,16 @@
 # 動作範囲 (int)
     data modify storage tusd_: Spawner.SpawnRange set value 4
 # 初回召喚時間 (int)
-    data modify storage tusd_: Spawner.Delay set value 20
+    data modify storage tusd_: Spawner.Delay set value 800
 # 最低召喚間隔 (int)
     data modify storage tusd_: Spawner.MinDelay set value 100
 # 最大召喚間隔 (int)
     data modify storage tusd_: Spawner.MaxDelay set value 400
 # 近くのエンティティの最大数 (int) ※このスポナーの近くにどれくらいのカスタムモブがいる場合、動作を停止するか
     data modify storage tusd_: Spawner.MaxNearbyEntities set value 5
-# この範囲にプレイヤーが存在するとき、Mobの召喚を開始する // distance <= 100
+# この範囲にプレイヤーが存在するとき、Mobの召喚を開始する // distance <= 64
     data modify storage tusd_: Spawner.RequiredPlayerRange set value 16
-# スポナーの色 (string)
-    data modify storage tusd_: Spawner.Color set value "White"
+# スポナーのグレード (string)
+    data modify storage tusd_: Spawner.Grade set value "Normal"
 
 function asset:spawner/debug/marker_setting

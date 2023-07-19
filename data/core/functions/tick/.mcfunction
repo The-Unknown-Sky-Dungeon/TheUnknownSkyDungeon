@@ -5,6 +5,9 @@
 ##時間管理ファンクション
 function core:tick_time
 
+##スポナー処理
+execute as @e[tag=Spawner] at @s run function mob:spawner/
+
 ##MOB初期化
 execute as @e[tag=!Initialized] at @s run function mob:core/initial
 
