@@ -12,7 +12,7 @@
 # 動作範囲 (int)
     data modify storage tusd_: Spawner.SpawnRange set value 4
 # 初回召喚時間 (int)
-    data modify storage tusd_: Spawner.Delay set value 800
+    data modify storage tusd_: Spawner.Delay set value 200
 # 最低召喚間隔 (int)
     data modify storage tusd_: Spawner.MinDelay set value 100
 # 最大召喚間隔 (int)
