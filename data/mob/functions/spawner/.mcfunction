@@ -7,6 +7,9 @@
 # プレイヤーがRequiredPlayerRangeの範囲内に居るかのチェック
     execute if entity @a[predicate=player:player,distance=..64] run function mob:spawner/required_range
 
+# スポナー座標が空気かどうかを判別
+    execute if block ~ ~ ~ #lib:air run function mob:spawner/break_spawner/
+
 # 範囲内にいる場合Delayを下げていく
     execute if entity @s[tag=Success] run scoreboard players remove @s SpawnerDelay 1
     execute if entity @s[tag=Success,scores={SpawnerDelay=..0}] run function mob:spawner/summon
