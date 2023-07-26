@@ -13,6 +13,7 @@
     function mob:spawner/search_pos/
 
 # MOB IDより召喚する
+    execute if entity @s[tag=Success] at 0-0-0-0-1 run particle poof ~ ~ ~ 0.3 0.3 0.3 0 10 force @a[distance=..64]
     execute if entity @s[tag=Success] as 0-0-0-0-0 at 0-0-0-0-1 run function mob:core/summon/id_check_first
 
 # リセット処理

@@ -34,6 +34,8 @@
     scoreboard players operation _ Random += $SpawnDelay _1
     scoreboard players operation @s SpawnerDelay = _ Random
 
+# パーティクル
+    particle minecraft:soul_fire_flame ~ ~ ~ 0.5 0.5 0.5 0 15 force @a[distance=..64]
 
 # リセット
     execute as 0-0-0-0-1 run function calc:geometory/return
