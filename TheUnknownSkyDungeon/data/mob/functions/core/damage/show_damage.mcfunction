@@ -13,9 +13,10 @@ execute if score @s Damage matches ..-1 run data merge entity @e[distance=..0.01
 
 data modify storage tusd_: Damage set value {left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[1f,1f,1f]}
 execute as @e[distance=..0.01,tag=DamageDisplay,limit=1] at @a[sort=nearest,limit=1] run function #util:distance
-execute store result storage tusd_: Damage.scale[0] float 0.0001 run data get storage util: out 2000
-execute store result storage tusd_: Damage.scale[1] float 0.0001 run data get storage util: out 2000
-execute store result storage tusd_: Damage.scale[2] float 0.0001 run data get storage util: out 2000
+execute store result score _ _1 run data get storage util: out 0.2
+execute if score _ _1 matches 1.. store result storage tusd_: Damage.scale[0] float 0.0001 run data get storage util: out 2000
+execute if score _ _1 matches 1.. run data modify storage tusd_: Damage.scale[1] set from storage tusd_: Damage.scale[0]
+execute if score _ _1 matches 1.. run data modify storage tusd_: Damage.scale[2] set from storage tusd_: Damage.scale[0]
 
 data modify entity @e[distance=..0.01,tag=DamageDisplay,limit=1] transformation set from storage tusd_: Damage
 data remove storage tusd_: Damage
