@@ -1,5 +1,11 @@
 {
     "datapack.env.cmdVersion": "1.20",
+    "datapack.env.dataVersion": "1.20.1",
+    "datapack.env.defaultVisibility": "public",
+    "datapack.env.dependsOnVanilla": true,
+    "datapack.env.detectionDepth": 1,
+    "datapack.lint.eol": "LF",
+    "datapack.lint.idOmitDefaultNamespace": null,
     "mcdutil.createDatapackTemplate.defaultFolder": false,
     "mcdutil.createDatapackTemplate.defaultLoadAndTick": false,
     "mcdutil.createDatapackTemplate.defaultVanillaData": false,
@@ -360,10 +366,4 @@
             ]
         }
     ],
-    "datapack.env.dataVersion": "1.20.1",
-    "datapack.env.defaultVisibility": "public",
-    "datapack.env.dependsOnVanilla": true,
-    "datapack.env.detectionDepth": 2,
-    "datapack.lint.eol": "LF",
-    "datapack.lint.idOmitDefaultNamespace": null
 }
