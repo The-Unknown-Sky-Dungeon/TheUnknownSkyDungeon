@@ -45,7 +45,8 @@ scoreboard objectives add SpawnerHP dummy {"text":"スポナーの体力"}
 scoreboard objectives add SpawnerDelay dummy {"text":"MOB召喚までの時間"}
 function #asset:mobs/load
 
-###トリガースコア作成
+###トリガー・スキル関連スコア
+scoreboard objectives add SkillID dummy {"text": "Skill ID"}
 scoreboard objectives add UseShieldTime dummy {"text":"盾を使用した最新時間"}
 
 ###変数、乱数
