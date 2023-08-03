@@ -7,7 +7,7 @@
 
 ##Oh_my_datを呼び出して最新かどうかのチェックをする
 function oh_my_dat:please
-execute store result score $NotLatestData _1 run data modify storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].DataCache.Health.Time set from storage tusd_lib: GameTime
+execute store result score $NotLatestData _1 run data modify storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].DataCache.Health.Time set from storage tusd_api: GameTime
 execute if score $NotLatestData _1 matches 1 run data modify storage oh_my_dat: _[-4][-4][-4][-4][-4][-4][-4][-4].DataCache.Health.Data set from entity @s Health
 
 ##戻りストレージ
