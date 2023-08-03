@@ -33,7 +33,7 @@ scoreboard objectives add WarriorLv dummy {"text":"ウォーリアLv"}
 scoreboard objectives add SorcererLv dummy {"text":"ソーサラーLv"}
 scoreboard objectives add SniperLv dummy {"text":"スナイパーLv"}
 scoreboard objectives add SummonerLv dummy {"text":"サモナーLv"}
-scoreboard objectives setdisplay belowName PlayerHP
+scoreboard objectives setdisplay below_name PlayerHP
 
 ###敵MOB用スコア
 scoreboard objectives add MobID dummy {"text":"MOB ID"}
@@ -69,8 +69,12 @@ execute store result score _ 4Tick run scoreboard players get _ _1
 execute store result score _ 10Tick run scoreboard players get _ _1
 execute store result score _ 20Tick run scoreboard players get _ _1
 
-##Oh_My_Dat用のスコア
+##システム用スコア
+scoreboard objectives add UUID dummy {"text": "UUIDスコア"}
 scoreboard objectives add OhMyDatCache dummy {"text": "OhMyDatIDのキャッシュ"}
+# デバッグ用システムスコア処理
+    execute unless score $Global UUID matches -2147483648..2147483647 run scoreboard players set $Global UUID 0
+    execute unless data storage tusd_mob: UUIDStorage run data modify storage tusd_mob: UUIDStorage append value {}
 
 ###システムディメンション設定
 execute in core:system run forceload add 0 0

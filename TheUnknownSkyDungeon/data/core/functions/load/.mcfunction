@@ -3,7 +3,7 @@
 ##############################
 
 ##初期化処理の起動
-execute unless data storage tusd_: _ run function core:load/once
+execute unless data storage tusd_: _ run function core:load/once {}
 ##1回目以降は起動しないようにする
 #デバッグ時は以下の注釈を解除して、毎回Loadされるようにする
 data modify storage tusd_: Debug set value true
