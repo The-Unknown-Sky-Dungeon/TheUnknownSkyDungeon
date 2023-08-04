@@ -6,6 +6,7 @@
 #function core:load/gamerule
 
 ###ステータススコア
+scoreboard objectives add PlayerUUID dummy {"text":"プレイヤー用UUID"}
 scoreboard objectives add HP dummy {"text":"HP"}
 scoreboard objectives add PlayerHP health {"text":"HP"}
 scoreboard objectives add HPMax dummy {"text":"最大HP"}
@@ -72,9 +73,6 @@ execute store result score _ 20Tick run scoreboard players get _ _1
 ##システム用スコア
 scoreboard objectives add UUID dummy {"text": "UUIDスコア"}
 scoreboard objectives add OhMyDatCache dummy {"text": "OhMyDatIDのキャッシュ"}
-# デバッグ用システムスコア処理
-    execute unless score $Global UUID matches -2147483648..2147483647 run scoreboard players set $Global UUID 0
-    execute unless data storage tusd_mob: UUIDStorage run data modify storage tusd_mob: UUIDStorage append value {}
 
 ###システムディメンション設定
 execute in core:system run forceload add 0 0
@@ -103,3 +101,7 @@ team modify Red seeFriendlyInvisibles false
 team modify Red color green
 team add Enemy {"text":"敵チーム"}
 team add Friend {"text":"味方チーム"}
+
+# デバッグ用システムスコア処理
+    execute unless score $Global UUID matches -2147483648..2147483647 run scoreboard players set $Global UUID 0
+    execute unless score $Global PlayerUUID matches -2147483648..2147483647 run scoreboard players set $Global PlayerUUID 0

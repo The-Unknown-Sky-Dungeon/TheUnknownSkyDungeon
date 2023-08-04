@@ -14,6 +14,7 @@ gamerule doVinesSpread false
 gamerule doWardenSpawning false
 gamerule doWeatherCycle false
 gamerule keepInventory true
+gamerule maxCommandChainLength 2147483647
 gamerule maxEntityCramming 48
 gamerule mobGriefing false
 gamerule naturalRegeneration false

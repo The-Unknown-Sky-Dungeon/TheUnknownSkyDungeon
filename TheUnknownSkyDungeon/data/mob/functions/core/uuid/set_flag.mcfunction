@@ -49,8 +49,5 @@
     execute unless score $Temp _1 matches 1.. run tag @s add UUIDFlag12-1
     execute if score $Temp _1 matches 1.. run tag @s add UUIDFlag12-0
 
-# リセット
-    scoreboard players reset $Temp
-
 # 補足
 # このUUIDFlagはプレイヤーが敵に攻撃された際に、攻撃した敵を検知するためのものです。

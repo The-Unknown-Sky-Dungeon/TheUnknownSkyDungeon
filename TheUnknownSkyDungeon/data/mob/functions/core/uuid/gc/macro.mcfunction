@@ -4,4 +4,4 @@
 #
 # @within function mob:core/uuid/gc/first
 
-$data remove storage tusd_mob: UUIDStorage[$(UUID)]
+$data remove storage tusd_mob: UUIDStorage.$(UUID)
