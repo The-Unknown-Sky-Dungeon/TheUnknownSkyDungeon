@@ -6,7 +6,7 @@
 
 # グローバルPlayerUUIDを割り当てる
     scoreboard players add $Global PlayerUUID 1
-    execute store result storage tusd_api: Argument.UUIDScore int 1 run scoreboard players operation @s PlayerUUID = $Global PlayerUUID
+    execute store result storage tusd_api: Argument.UUID int 1 run scoreboard players operation @s PlayerUUID = $Global PlayerUUID
 
 # UUID取得
     function mob:core/uuid/get_uuid
@@ -15,4 +15,5 @@
     function player:uuid/allocate_macro with storage tusd_api: Argument
 
 # リセット
+    data remove storage tusd_: Temp
     data remove storage tusd_api: Argument

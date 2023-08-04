@@ -4,4 +4,4 @@
 #
 # @within function player:uuid/set_uuid
 
-$data modify storage tusd_mob: PlayerStorage.$(UUIDScore).UUID set from storage tusd_api: Argument.UUID
+$data modify storage tusd_mob: PlayerStorage.$(UUID).UUID set from storage tusd_: Temp.UUID

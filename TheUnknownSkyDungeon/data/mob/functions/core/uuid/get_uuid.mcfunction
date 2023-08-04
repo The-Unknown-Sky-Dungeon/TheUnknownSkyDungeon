@@ -9,7 +9,7 @@
     function #util:resolve
 
 # エンティティの場合は [14, 50] をスライス
-    execute if entity @s[type=!player] run return run data modify storage tusd_api: Argument.UUID set string storage util: out 14 50
+    execute if entity @s[type=!player] run return run data modify storage tusd_: Temp.UUID set string storage util: out 14 50
 
 # プレイヤーの場合は [157 + プレイヤー名の長さ * 2 , 193 + プレイヤー名の長さ * 2] をスライス
     execute store result storage tusd_: Temp.Len int 0.5 run data get storage util: out

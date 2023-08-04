@@ -9,7 +9,7 @@
     execute store result score $Temp UUID run data get storage tusd_: DeletedUUID[0]
     execute if score $Temp UUID matches 0 store result score $Temp UUID run scoreboard players add $Global UUID 1
     data remove storage tusd_: DeletedUUID[0]
-    execute store result storage tusd_api: Argument.UUIDScore int 1 run scoreboard players operation @s UUID = $Temp UUID
+    execute store result storage tusd_api: Argument.UUID int 1 run scoreboard players operation @s UUID = $Temp UUID
 
 # Flagをセットする
     function mob:core/uuid/set_flag
